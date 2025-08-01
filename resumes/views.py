@@ -6,13 +6,6 @@ from .permissions import ResumePermissions
 class ResumeViewSet(viewsets.ModelViewSet):
     queryset = Resume.objects.all()
     serializer_class = ResumeSerializer
-
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-
-class ResumeViewSet(viewsets.ModelViewSet):
-    queryset = Resume.objects.all()
-    serializer_class = ResumeSerializer
     permission_classes = [ResumePermissions]
 
     def get_queryset(self):
